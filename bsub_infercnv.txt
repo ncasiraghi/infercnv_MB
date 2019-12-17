@@ -48,3 +48,271 @@ PS:
 
 Read file <bsub_infercnv.log> for stderr output of this job.
 
+Sender: LSF System <lsfadmin@odcf-cn34u18s04>
+Subject: Job 2421388: <infercnv> in cluster <ODCF> Done
+
+Job <infercnv> was submitted from host <odcf-worker01> by user <n790i> in cluster <ODCF> at Tue Dec 17 14:40:00 2019
+Job was executed on host(s) <odcf-cn34u18s04>, in queue <verylong>, as user <n790i> in cluster <ODCF> at Tue Dec 17 14:40:01 2019
+</home/n790i> was used as the home directory.
+</icgc/dkfzlsdf/analysis/B260/users/n790i/infercnv_MB> was used as the working directory.
+Started at Tue Dec 17 14:40:01 2019
+Terminated at Tue Dec 17 15:57:22 2019
+Results reported at Tue Dec 17 15:57:22 2019
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh 
+#BSUB -J infercnv
+#BSUB -q verylong 
+#BSUB -e bsub_infercnv.log 
+#BSUB -o bsub_infercnv.txt 
+
+module load R/3.6.0
+Rscript /icgc/dkfzlsdf/analysis/B260/users/n790i/infercnv_MB/infercnv_analysis.R /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/single_cell_cn_10x/rna/infercnv/ST1R-Nuclei
+
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   4629.60 sec.
+    Max Memory :                                 2638 MB
+    Average Memory :                             2178.46 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   4640 sec.
+    Turnaround time :                            4642 sec.
+
+The output (if any) follows:
+
+INFO [2019-12-17 14:40:15] Parsing gene order file: gene_ordering_file.txt
+INFO [2019-12-17 14:40:17] Parsing cell annotations file: cellAnnotations_ST1R-Nuclei.txt
+INFO [2019-12-17 14:40:17] ::order_reduce:Start.
+INFO [2019-12-17 14:40:18] .order_reduce(): expr and order match.
+INFO [2019-12-17 14:40:19] ::process_data:order_reduce:Reduction from positional data, new dimensions (r,c) = 32738,6995 Total=7309306 Min=0 Max=306.
+INFO [2019-12-17 14:40:19] num genes removed taking into account provided gene ordering list: 1216 = 3.71433807807441% removed.
+INFO [2019-12-17 14:40:19] validating infercnv_obj
+INFO [2019-12-17 14:40:19] ::process_data:Start
+INFO [2019-12-17 14:40:19] 
+
+	STEP 1: incoming data
+
+INFO [2019-12-17 14:40:27] 
+
+	STEP 02: Removing lowly expressed genes
+
+INFO [2019-12-17 14:40:27] ::above_min_mean_expr_cutoff:Start
+INFO [2019-12-17 14:40:27] Removing 29221 genes from matrix as below mean expr threshold: 0.1
+INFO [2019-12-17 14:40:28] validating infercnv_obj
+INFO [2019-12-17 14:40:28] There are 2301 genes and 6995 cells remaining in the expr matrix.
+INFO [2019-12-17 14:40:31] no genes removed due to min cells/gene filter
+INFO [2019-12-17 14:40:36] 
+
+	STEP 03: normalization by sequencing depth
+
+INFO [2019-12-17 14:40:36] normalizing counts matrix by depth
+INFO [2019-12-17 14:40:39] Computed total sum normalization factor as median libsize: 549.000000
+INFO [2019-12-17 14:40:44] 
+
+	STEP 04: log transformation of data
+
+INFO [2019-12-17 14:40:44] transforming log2xplus1()
+INFO [2019-12-17 14:40:51] 
+
+	STEP 05: removing average of reference data (before smoothing)
+
+INFO [2019-12-17 14:40:51] ::subtract_ref_expr_from_obs:Start inv_log=FALSE, use_bounds=TRUE
+INFO [2019-12-17 14:40:51] subtracting mean(normal) per gene per cell across all data
+INFO [2019-12-17 14:40:53] -subtracting expr per gene, use_bounds=TRUE
+INFO [2019-12-17 14:44:56] 
+
+	STEP 06: apply max centered expression threshold: 3
+
+INFO [2019-12-17 14:44:56] ::process_data:setting max centered expr, threshold set to: +/-:  3
+INFO [2019-12-17 14:45:04] 
+
+	STEP 07: Smoothing data per cell by chromosome
+
+INFO [2019-12-17 14:45:04] smooth_by_chromosome: chr: chr1
+INFO [2019-12-17 14:45:12] smooth_by_chromosome: chr: chr2
+INFO [2019-12-17 14:45:20] smooth_by_chromosome: chr: chr3
+INFO [2019-12-17 14:45:28] smooth_by_chromosome: chr: chr4
+INFO [2019-12-17 14:45:35] smooth_by_chromosome: chr: chr5
+INFO [2019-12-17 14:45:43] smooth_by_chromosome: chr: chr6
+INFO [2019-12-17 14:45:50] smooth_by_chromosome: chr: chr7
+INFO [2019-12-17 14:45:59] smooth_by_chromosome: chr: chr8
+INFO [2019-12-17 14:46:04] smooth_by_chromosome: chr: chr9
+INFO [2019-12-17 14:46:10] smooth_by_chromosome: chr: chr10
+INFO [2019-12-17 14:46:16] smooth_by_chromosome: chr: chr11
+INFO [2019-12-17 14:46:24] smooth_by_chromosome: chr: chr12
+INFO [2019-12-17 14:46:31] smooth_by_chromosome: chr: chr13
+INFO [2019-12-17 14:46:35] smooth_by_chromosome: chr: chr14
+INFO [2019-12-17 14:46:39] smooth_by_chromosome: chr: chr15
+INFO [2019-12-17 14:46:44] smooth_by_chromosome: chr: chr16
+INFO [2019-12-17 14:46:47] smooth_by_chromosome: chr: chr17
+INFO [2019-12-17 14:46:52] smooth_by_chromosome: chr: chr18
+INFO [2019-12-17 14:46:56] smooth_by_chromosome: chr: chr19
+INFO [2019-12-17 14:47:01] smooth_by_chromosome: chr: chr20
+INFO [2019-12-17 14:47:04] smooth_by_chromosome: chr: chr21
+INFO [2019-12-17 14:47:06] smooth_by_chromosome: chr: chr22
+INFO [2019-12-17 14:47:19] 
+
+	STEP 08: re-centering data across chromosome after smoothing
+
+INFO [2019-12-17 14:47:19] ::center_smooth across chromosomes per cell
+INFO [2019-12-17 14:47:34] 
+
+	STEP 09: removing average of reference data (after smoothing)
+
+INFO [2019-12-17 14:47:34] ::subtract_ref_expr_from_obs:Start inv_log=FALSE, use_bounds=TRUE
+INFO [2019-12-17 14:47:34] subtracting mean(normal) per gene per cell across all data
+INFO [2019-12-17 14:47:36] -subtracting expr per gene, use_bounds=TRUE
+INFO [2019-12-17 14:47:49] 
+
+	STEP 10: invert log2(FC) to FC
+
+INFO [2019-12-17 14:47:49] invert_log2(), computing 2^x
+INFO [2019-12-17 14:48:05] 
+
+	STEP 11: Clustering samples (not defining tumor subclusters)
+
+INFO [2019-12-17 14:48:05] define_signif_tumor_subclusters(p_val=0.1
+INFO [2019-12-17 14:48:05] define_signif_tumor_subclusters(), tumor: tumor
+INFO [2019-12-17 14:48:55] cut tree into: 1 groups
+INFO [2019-12-17 14:48:55] -processing tumor,tumor_s1
+INFO [2019-12-17 14:48:55] define_signif_tumor_subclusters(), tumor: normal
+INFO [2019-12-17 15:04:27] cut tree into: 1 groups
+INFO [2019-12-17 15:04:27] -processing normal,normal_s1
+INFO [2019-12-17 15:04:58] ::plot_cnv:Start
+INFO [2019-12-17 15:04:58] ::plot_cnv:Current data dimensions (r,c)=2301,6995 Total=16112531.7025248 Min=0.831179684822952 Max=1.55866927726788.
+INFO [2019-12-17 15:04:58] ::plot_cnv:Depending on the size of the matrix this may take a moment.
+INFO [2019-12-17 15:05:25] plot_cnv(): auto thresholding at: (0.890997 , 1.111120)
+INFO [2019-12-17 15:05:26] plot_cnv_observation:Start
+INFO [2019-12-17 15:05:26] Observation data size: Cells= 1342 Genes= 2301
+INFO [2019-12-17 15:05:26] clustering observations via method: ward.D
+INFO [2019-12-17 15:05:26] plot_cnv_observation:Writing observation groupings/color.
+INFO [2019-12-17 15:06:20] Colors for breaks:  #00008B,#24249B,#4848AB,#6D6DBC,#9191CC,#B6B6DD,#DADAEE,#FFFFFF,#EEDADA,#DDB6B6,#CC9191,#BC6D6D,#AB4848,#9B2424,#8B0000
+INFO [2019-12-17 15:06:20] Quantiles of plotted data range: 0.890996997849409,0.971591953190346,0.998282378807763,1.028362796011,1.11111995506503
+INFO [2019-12-17 15:06:21] plot_cnv_references:Writing observation data to /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/single_cell_cn_10x/rna/infercnv/ST1R-Nuclei/results/infercnv.preliminary.observations.txt
+INFO [2019-12-17 15:06:26] plot_cnv_references:Start
+INFO [2019-12-17 15:06:26] Reference data size: Cells= 5653 Genes= 2301
+INFO [2019-12-17 15:21:48] plot_cnv_references:Number reference groups= 1
+INFO [2019-12-17 15:21:48] plot_cnv_references:Plotting heatmap.
+INFO [2019-12-17 15:22:03] Colors for breaks:  #00008B,#24249B,#4848AB,#6D6DBC,#9191CC,#B6B6DD,#DADAEE,#FFFFFF,#EEDADA,#DDB6B6,#CC9191,#BC6D6D,#AB4848,#9B2424,#8B0000
+INFO [2019-12-17 15:22:03] Quantiles of plotted data range: 0.890996997849409,0.975529089008666,0.998282370734975,1.02318381891204,1.11111995506503
+INFO [2019-12-17 15:22:04] plot_cnv_references:Writing reference data to /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/single_cell_cn_10x/rna/infercnv/ST1R-Nuclei/results/infercnv.preliminary.references.txt
+INFO [2019-12-17 15:22:26] 
+
+	STEP 12: Denoising
+
+INFO [2019-12-17 15:22:26] ::process_data:Remove noise, noise threshold defined via ref mean sd_amplifier:  1.5
+INFO [2019-12-17 15:22:26] denoising using mean(normal) +- sd_amplifier * sd(normal) per gene per cell across all data
+INFO [2019-12-17 15:22:27] :: **** clear_noise_via_ref_quantiles **** : removing noise between bounds:  0.945088084776824 - 1.05631507813671
+INFO [2019-12-17 15:22:32] ::plot_cnv:Start
+INFO [2019-12-17 15:22:32] ::plot_cnv:Current data dimensions (r,c)=2301,6995 Total=16145917.9580661 Min=0.831179684822952 Max=1.55866927726788.
+INFO [2019-12-17 15:22:33] ::plot_cnv:Depending on the size of the matrix this may take a moment.
+INFO [2019-12-17 15:22:58] plot_cnv(): auto thresholding at: (0.895146 , 1.111120)
+INFO [2019-12-17 15:23:00] plot_cnv_observation:Start
+INFO [2019-12-17 15:23:00] Observation data size: Cells= 1342 Genes= 2301
+INFO [2019-12-17 15:23:00] clustering observations via method: ward.D
+INFO [2019-12-17 15:23:00] plot_cnv_observation:Writing observation groupings/color.
+INFO [2019-12-17 15:23:53] Colors for breaks:  #00008B,#24249B,#4848AB,#6D6DBC,#9191CC,#B6B6DD,#DADAEE,#FFFFFF,#EEDADA,#DDB6B6,#CC9191,#BC6D6D,#AB4848,#9B2424,#8B0000
+INFO [2019-12-17 15:23:53] Quantiles of plotted data range: 0.895145519598972,1.00070158145677,1.00070158145677,1.00070158145677,1.11111995506503
+INFO [2019-12-17 15:23:55] plot_cnv_references:Writing observation data to /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/single_cell_cn_10x/rna/infercnv/ST1R-Nuclei/results/infercnv.12_denoised.observations.txt
+INFO [2019-12-17 15:23:59] plot_cnv_references:Start
+INFO [2019-12-17 15:23:59] Reference data size: Cells= 5653 Genes= 2301
+INFO [2019-12-17 15:39:18] plot_cnv_references:Number reference groups= 1
+INFO [2019-12-17 15:39:18] plot_cnv_references:Plotting heatmap.
+INFO [2019-12-17 15:39:32] Colors for breaks:  #00008B,#24249B,#4848AB,#6D6DBC,#9191CC,#B6B6DD,#DADAEE,#FFFFFF,#EEDADA,#DDB6B6,#CC9191,#BC6D6D,#AB4848,#9B2424,#8B0000
+INFO [2019-12-17 15:39:32] Quantiles of plotted data range: 0.895145519598972,1.00070158145677,1.00070158145677,1.00070158145677,1.11111995506503
+INFO [2019-12-17 15:39:34] plot_cnv_references:Writing reference data to /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/single_cell_cn_10x/rna/infercnv/ST1R-Nuclei/results/infercnv.12_denoised.references.txt
+INFO [2019-12-17 15:40:00] 
+
+## Making the final infercnv heatmap ##
+INFO [2019-12-17 15:40:00] ::plot_cnv:Start
+INFO [2019-12-17 15:40:00] ::plot_cnv:Current data dimensions (r,c)=2301,6995 Total=16145917.9580661 Min=0.831179684822952 Max=1.55866927726788.
+INFO [2019-12-17 15:40:00] ::plot_cnv:Depending on the size of the matrix this may take a moment.
+INFO [2019-12-17 15:40:26] plot_cnv(): auto thresholding at: (0.888880 , 1.111120)
+INFO [2019-12-17 15:40:27] plot_cnv_observation:Start
+INFO [2019-12-17 15:40:27] Observation data size: Cells= 1342 Genes= 2301
+INFO [2019-12-17 15:40:27] clustering observations via method: ward.D
+INFO [2019-12-17 15:40:27] plot_cnv_observation:Writing observation groupings/color.
+INFO [2019-12-17 15:41:20] Colors for breaks:  #00008B,#24249B,#4848AB,#6D6DBC,#9191CC,#B6B6DD,#DADAEE,#FFFFFF,#EEDADA,#DDB6B6,#CC9191,#BC6D6D,#AB4848,#9B2424,#8B0000
+INFO [2019-12-17 15:41:20] Quantiles of plotted data range: 0.888880044934967,1.00070158145677,1.00070158145677,1.00070158145677,1.11111995506503
+INFO [2019-12-17 15:41:21] plot_cnv_references:Writing observation data to /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/single_cell_cn_10x/rna/infercnv/ST1R-Nuclei/results/infercnv.observations.txt
+INFO [2019-12-17 15:41:26] plot_cnv_references:Start
+INFO [2019-12-17 15:41:26] Reference data size: Cells= 5653 Genes= 2301
+INFO [2019-12-17 15:56:43] plot_cnv_references:Number reference groups= 1
+INFO [2019-12-17 15:56:44] plot_cnv_references:Plotting heatmap.
+INFO [2019-12-17 15:56:58] Colors for breaks:  #00008B,#24249B,#4848AB,#6D6DBC,#9191CC,#B6B6DD,#DADAEE,#FFFFFF,#EEDADA,#DDB6B6,#CC9191,#BC6D6D,#AB4848,#9B2424,#8B0000
+INFO [2019-12-17 15:56:58] Quantiles of plotted data range: 0.888880044934967,1.00070158145677,1.00070158145677,1.00070158145677,1.11111995506503
+INFO [2019-12-17 15:57:00] plot_cnv_references:Writing reference data to /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/single_cell_cn_10x/rna/infercnv/ST1R-Nuclei/results/infercnv.references.txt
+
+
+PS:
+
+Read file <bsub_infercnv.log> for stderr output of this job.
+
+Sender: LSF System <lsfadmin@odcf-cn34u18s11>
+Subject: Job 2421734: <infercnv> in cluster <ODCF> Exited
+
+Job <infercnv> was submitted from host <odcf-worker01> by user <n790i> in cluster <ODCF> at Tue Dec 17 16:19:18 2019
+Job was executed on host(s) <odcf-cn34u18s11>, in queue <verylong>, as user <n790i> in cluster <ODCF> at Tue Dec 17 16:19:20 2019
+</home/n790i> was used as the home directory.
+</icgc/dkfzlsdf/analysis/B260/users/n790i/infercnv_MB> was used as the working directory.
+Started at Tue Dec 17 16:19:20 2019
+Terminated at Tue Dec 17 16:21:04 2019
+Results reported at Tue Dec 17 16:21:04 2019
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh 
+#BSUB -J infercnv
+#BSUB -q verylong 
+#BSUB -e bsub_infercnv.log 
+#BSUB -o bsub_infercnv.txt 
+
+module load R/3.6.0
+# Rscript /icgc/dkfzlsdf/analysis/B260/users/n790i/infercnv_MB/infercnv_analysis.R /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/data/10XRNA5P/4M67/4M67-Nuclei
+Rscript /icgc/dkfzlsdf/analysis/B260/users/n790i/infercnv_MB/infercnv_analysis.R /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/data/10XRNA5P/BT084/BT084-PDX
+Rscript /icgc/dkfzlsdf/analysis/B260/users/n790i/infercnv_MB/infercnv_analysis.R /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/data/10XRNA5P/MB243/MB243-Nuclei
+Rscript /icgc/dkfzlsdf/analysis/B260/users/n790i/infercnv_MB/infercnv_analysis.R /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/data/10XRNA5P/RCMB18/RCMB18-PDX
+Rscript /icgc/dkfzlsdf/analysis/B260/users/n790i/infercnv_MB/infercnv_analysis.R /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/data/10XRNA5P/ST1R/ST1R-Nuclei
+Rscript /icgc/dkfzlsdf/analysis/B260/users/n790i/infercnv_MB/infercnv_analysis.R /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/data/10XRNA5P/ST1R/ST1R-PDX
+Rscript /icgc/dkfzlsdf/analysis/B260/users/n790i/infercnv_MB/infercnv_analysis.R /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/data/10XRNA5P/STP/STP-Nuclei
+Rscript /icgc/dkfzlsdf/analysis/B260/users/n790i/infercnv_MB/infercnv_analysis.R /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/data/10XRNA5P/STP/STP-PDX
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   93.25 sec.
+    Max Memory :                                 412 MB
+    Average Memory :                             235.94 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   101 sec.
+    Turnaround time :                            106 sec.
+
+The output (if any) follows:
+
+
+
+PS:
+
+Read file <bsub_infercnv.log> for stderr output of this job.
+
