@@ -1,0 +1,50 @@
+Sender: LSF System <lsfadmin@odcf-cn34u09s12>
+Subject: Job 2421385: <infercnv> in cluster <ODCF> Exited
+
+Job <infercnv> was submitted from host <odcf-worker01> by user <n790i> in cluster <ODCF> at Tue Dec 17 14:36:36 2019
+Job was executed on host(s) <odcf-cn34u09s12>, in queue <verylong>, as user <n790i> in cluster <ODCF> at Tue Dec 17 14:36:36 2019
+</home/n790i> was used as the home directory.
+</icgc/dkfzlsdf/analysis/B260/users/n790i/infercnv_MB> was used as the working directory.
+Started at Tue Dec 17 14:36:36 2019
+Terminated at Tue Dec 17 14:36:59 2019
+Results reported at Tue Dec 17 14:36:59 2019
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/sh 
+#BSUB -J infercnv
+#BSUB -q verylong 
+#BSUB -e bsub_infercnv.log 
+#BSUB -o bsub_infercnv.txt 
+
+module load R/3.6.0
+Rscript /icgc/dkfzlsdf/analysis/B260/users/n790i/infercnv_MB/infercnv_analysis.R /icgc/dkfzlsdf/analysis/B260/projects/chromothripsis_medulloblastoma/single_cell_cn_10x/rna/infercnv/ST1R-Nuclei
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   10.40 sec.
+    Max Memory :                                 393 MB
+    Average Memory :                             273.00 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   21 sec.
+    Turnaround time :                            23 sec.
+
+The output (if any) follows:
+
+INFO [2019-12-17 14:36:57] Parsing gene order file: gene_ordering_file.txt
+INFO [2019-12-17 14:36:58] Parsing cell annotations file: cellAnnotations_filtered_ST1R-Nuclei.txt
+
+
+PS:
+
+Read file <bsub_infercnv.log> for stderr output of this job.
+
